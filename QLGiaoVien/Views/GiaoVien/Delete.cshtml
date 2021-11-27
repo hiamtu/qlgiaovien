@@ -1,0 +1,108 @@
+﻿@model QLGiaoVien.Models.GiaoVien
+
+@{
+    ViewBag.Title = "Delete";
+}
+<style>
+
+    table, td, th {
+        border: 1px solid black;
+    }
+
+    table {
+        width: 100% border-collapse:collapse;
+        height: 50px;
+    }
+
+    .p-create {
+        margin-left: 40px;
+    }
+</style>
+<h1 style="color: red">Xóa giáo viên</h1>
+
+<table class="table">
+    <tr style="background-color: lightblue">
+        <th>
+            @Html.DisplayNameFor(model => model.HovaTen)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoDienThoai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoCanCuoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenDangNhap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdChucVu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LaQuanTri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LaChuyenVien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LaGiaoVien)
+        </th>
+
+        <th></th>
+    </tr>
+
+
+    
+
+            
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.HovaTen)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.GioiTinh)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.SoDienThoai)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.SoCanCuoc)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.TenDangNhap)
+            </td>
+            <td>
+                @(Model.ChucVu==null?"":Model.ChucVu.TenChucVu)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.LaQuanTri)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.LaChuyenVien)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.LaGiaoVien)
+            </td>
+        </tr>
+
+
+</table>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" id="id" value="@Model.Id" />
+    <div class="form-actions no-color">
+        <input type="submit" value="Xóa" class="btn btn-default" /> |
+        @Html.ActionLink("Thoát", "Index")
+    </div>
+}
